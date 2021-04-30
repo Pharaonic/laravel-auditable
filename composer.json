@@ -1,0 +1,41 @@
+{
+    "name": "pharaonic/laravel-auditable",
+    "description": "Simplest Auditable for Laravel Eloquent/Model",
+    "keywords": [
+        "php",
+        "laravel",
+        "audit",
+        "audits",
+        "auditing",
+        "eloquent",
+        "model"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Moamen Eltouny",
+            "email": "raggi@pharaonic.io"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "laravel/framework": ">=6.0"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Pharaonic\\Laravel\\Audits\\AuditsServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Pharaonic\\Laravel\\Audits\\": "src"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
