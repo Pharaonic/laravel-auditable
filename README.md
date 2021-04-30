@@ -74,7 +74,7 @@ use Pharaonic\Laravel\Audits\Auditable;
 class Article extends Model
 {
     use Auditable;
-	use SoftDeletes;
+    use SoftDeletes;
 }
 
 ```
