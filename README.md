@@ -22,10 +22,8 @@ $ composer require pharaonic/laravel-auditable
 ## Usage Steps
 
 - [Create auditable columns on the table](#CS)
-- [auditable with the model](#US)
+- [Auditable with the model](#US)
 - [How to use](#HTU)
-- [Blade Directive](#BL)
-- [Config Manipulation](#CM)
 <br><br>
 
 
