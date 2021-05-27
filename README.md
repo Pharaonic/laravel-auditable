@@ -1,5 +1,5 @@
 
-<p align="center"><a href="https://pharaonic.io" target="_blank"><img src="https://raw.githubusercontent.com/Pharaonic/logos/main/auditable.jpg" width="470"></a></p>
+<p align="center"><a href="https://pharaonic.io" target="_blank"><img src="https://raw.githubusercontent.com/Pharaonic/logos/main/auditable.jpg"></a></p>
 
 <p align="center">
 <a href="https://github.com/Pharaonic/laravel-auditable" target="_blank"><img src="http://img.shields.io/badge/source-pharaonic/laravel--auditable-blue.svg?style=flat-square" alt="Source"></a> <a href="https://packagist.org/packages/pharaonic/laravel-auditable" target="_blank"><img src="https://img.shields.io/packagist/v/pharaonic/laravel-auditable?style=flat-square" alt="Packagist Version"></a><br>
