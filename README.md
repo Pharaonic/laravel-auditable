@@ -2,105 +2,31 @@
 <p align="center"><a href="https://pharaonic.io" target="_blank"><img src="https://raw.githubusercontent.com/Pharaonic/logos/main/auditable.jpg"></a></p>
 
 <p align="center">
-<a href="https://github.com/Pharaonic/laravel-auditable" target="_blank"><img src="http://img.shields.io/badge/source-pharaonic/laravel--auditable-blue.svg?style=flat-square" alt="Source"></a> <a href="https://packagist.org/packages/pharaonic/laravel-auditable" target="_blank"><img src="https://img.shields.io/packagist/v/pharaonic/laravel-auditable?style=flat-square" alt="Packagist Version"></a><br>
-<a href="https://laravel.com" target="_blank"><img src="https://img.shields.io/badge/Laravel->=6.0-red.svg?style=flat-square" alt="Laravel"></a> <img src="https://img.shields.io/packagist/dt/pharaonic/laravel-auditable?style=flat-square" alt="Packagist Downloads"> <img src="http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Source">
+  <a href="https://php.net" target="_blank"><img src="https://img.shields.io/static/v1?label=PHP&message=%3E=7.2&color=blue&style=flat-square" alt="PHP Version : >= 7.2"></a>
+  <a href="https://laravel.com" target="_blank"><img src="https://img.shields.io/static/v1?label=Laravel&message=%3E=6.0&color=F05340&style=flat-square" alt="Laravel Version : >= 6.0"></a>
+  <img src="https://img.shields.io/static/v1?label=License&message=MIT&color=brightgreen&style=flat-square" alt="License">
+  <a href="https://liberapay.com/Pharaonic" target="_blank"><img src="https://img.shields.io/liberapay/receives/Pharaonic?color=gold&label=Support&style=flat-square" alt="Support"></a>
+  <br>
+  <a href="https://packagist.org/packages/Pharaonic/laravel-auditable" target="_blank"><img src="https://img.shields.io/static/v1?label=Packagist&message=pharaonic/laravel-auditable&color=blue&logo=packagist&logoColor=white" alt="Source"></a>
+  <a href="https://packagist.org/packages/pharaonic/laravel-auditable" target="_blank"><img src="https://poser.pugx.org/pharaonic/laravel-auditable/v" alt="Packagist Version"></a>
+  <a href="https://packagist.org/packages/pharaonic/laravel-auditable" target="_blank"><img src="https://poser.pugx.org/pharaonic/laravel-auditable/downloads" alt="Packagist Downloads"></a>
 </p>
 
-
-
-
-<h1 align="center">Laravel Auditable</h1>
-
-## Install
-Install the latest version using [Composer](https://getcomposer.org/):
-
-```bash
-$ composer require pharaonic/laravel-auditable
-```
+<h3 align="center">Simplest Auditable for Laravel Eloquent/Model.</h3>
 <br>
 
-## Usage Steps
+## Documentation
 
-- [Create auditable columns on the table](#CS)
-- [Auditable with the model](#US)
-- [How to use](#HTU)
-<br><br>
+You can find the detailed documentation here in [Laravel Auditable Documentation](https://pharaonic.io/package/2-laravel/13-auditable).
 
+## Contributing
 
-<a name="CS"></a>
-### Create auditable columns on the table
-###### Just add one of this lines to your Migration file.
-```php
-// created_by, created_at
-// updated_by, updated_at
-$table->auditable();
+Thank you for considering contributing to this package! Be one of Pharaonic team.
 
-// created_by, created_at
-// updated_by, updated_at
-// deleted_by, deleted_at
-$table->auditableWithSoftDeletes();
-```
-<br>
+## Pharaonic Sponsors
 
-<a name="US"></a>
-### Auditable with the model 
-###### Auditable without SoftDeletes
-```php
-<?php
-
-namespace App\Models;
-
-use Illuminate\Database\Eloquent\Model;
-use Pharaonic\Laravel\Audits\Auditable;
-
-class Article extends Model
-{
-    use Auditable;
-}
-
-```
-###### Auditable with SoftDeletes
-```php
-<?php
-
-namespace App\Models;
-
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Pharaonic\Laravel\Audits\Auditable;
-
-class Article extends Model
-{
-    use Auditable;
-    use SoftDeletes;
-}
-
-```
-<br>
-
-<a name="HTU"></a>
-
-### How To Use
-```php
-// Creating
-$article = Article::create(['title' => 'Moamen Eltouny']);
-echo $article->created_at->isoFormat('LLLL');
-echo $article->created_by->name;
-
-// Updating
-$article = Article::first();
-echo $article->updated_at->isoFormat('LLLL');
-echo $article->updated_by->name;
-
-// Deleting (ONLY WITH SoftDeletes)
-$article->delete();
-$article = Article::withTrashed()->first();
-echo $article->deleted_at->isoFormat('LLLL');
-echo $article->deleted_at->name;
-```
-<br><br>
-
+We would like to extend our thanks to the following sponsors for funding Pharaonic packages development. If you are interested in becoming a sponsor, please visit the Pharaonic [Liberapay page](https://en.liberapay.com/Pharaonic) or [Patreon page](https://patreon.com/Pharaonic).
 
 ## License
 
-[MIT license](LICENSE.md)
+This package is an open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
