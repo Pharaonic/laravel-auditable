@@ -30,10 +30,10 @@ trait Auditable
      */
     protected static function bootAuditable()
     {
-        $user = Auth::id() ?? null;
-
         // Creating && Updating
-        self::saving(function ($item) use ($user) {
+        self::saving(function ($item) {
+            $user = Auth::id() ?? null;
+
             if ($item->timestamps)
                 if (!$item->getKey()) {
                     // Creating
@@ -45,7 +45,9 @@ trait Auditable
         });
 
         // Deleting
-        static::deleting(function ($item) use ($user) {
+        static::deleting(function ($item) {
+            $user = Auth::id() ?? null;
+
             if (is_bool($item->forceDeleting ?? null))
                 if (!$item->forceDeleting) {
                     // SOFT
