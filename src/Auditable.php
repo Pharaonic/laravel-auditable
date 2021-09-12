@@ -2,16 +2,14 @@
 
 namespace Pharaonic\Laravel\Audits;
 
-use App\Models\User;
+use App\Models\Users\User;
 use Illuminate\Support\Facades\Auth;
-
-// use Illuminate\Database\Eloquent\Builder;
 
 trait Auditable
 {
     /**
      * Init Auditable Package
-     * Add `created_by`, `updated_by`, `deleted_at` fields to fillable list.
+     * Add `created_by`, `updated_by`, `deleted_by` fields to fillable list.
      *
      * @return void
      */
@@ -21,7 +19,7 @@ trait Auditable
             array_push($this->fillable, 'created_by', 'updated_by');
 
         if (is_bool($this->forceDeleting ?? null))
-            $this->fillable[] = 'deleted_at';
+            $this->fillable[] = 'deleted_by';
     }
 
     /**
@@ -62,7 +60,7 @@ trait Auditable
      */
     public function createdBy()
     {
-        $model = config('auth.providers.users.model', User::class);
+        $model = config('auth.providers.users.model', config('auth.providers.users.model', User::class));
         return $this->belongsTo($model, 'created_by');
     }
 
@@ -71,7 +69,7 @@ trait Auditable
      */
     public function updatedBy()
     {
-        $model = config('auth.providers.users.model', User::class);
+        $model = config('auth.providers.users.model', config('auth.providers.users.model', User::class));
         return $this->belongsTo($model, 'updated_by');
     }
 
@@ -80,7 +78,7 @@ trait Auditable
      */
     public function deletedBy()
     {
-        $model = config('auth.providers.users.model', User::class);
+        $model = config('auth.providers.users.model', config('auth.providers.users.model', User::class));
         return $this->belongsTo($model, 'deleted_by');
     }
 }
