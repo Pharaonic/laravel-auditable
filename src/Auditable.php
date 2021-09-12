@@ -30,26 +30,24 @@ trait Auditable
      */
     protected static function bootAuditable()
     {
-        $user = Auth::id();
-
         // Creating && Updating
-        self::saving(function ($item) use ($user) {
+        self::saving(function ($item) {
             if ($item->timestamps)
                 if (!$item->getKey()) {
                     // Creating
-                    $item->created_by = $user;
+                    $item->created_by = auth()->id;
                 } else {
                     // Updating
-                    $item->updated_by = $user;
+                    $item->updated_by = auth()->id;
                 }
         });
 
         // Deleting
-        static::deleting(function ($item) use ($user) {
+        static::deleting(function ($item) {
             if (is_bool($item->forceDeleting ?? null))
                 if (!$item->forceDeleting) {
                     // SOFT
-                    $item->deleted_by = $user;
+                    $item->deleted_by = auth()->id;
                     $item->save();
                 }
         });
