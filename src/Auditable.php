@@ -60,7 +60,7 @@ trait Auditable
      */
     public function createdBy()
     {
-        $model = config('auth.providers.users.model', config('auth.providers.users.model', User::class));
+        $model = config('auth.providers.users.model', User::class);
         return $this->belongsTo($model, 'created_by');
     }
 
@@ -69,7 +69,7 @@ trait Auditable
      */
     public function updatedBy()
     {
-        $model = config('auth.providers.users.model', config('auth.providers.users.model', User::class));
+        $model = config('auth.providers.users.model', User::class);
         return $this->belongsTo($model, 'updated_by');
     }
 
@@ -78,7 +78,7 @@ trait Auditable
      */
     public function deletedBy()
     {
-        $model = config('auth.providers.users.model', config('auth.providers.users.model', User::class));
+        $model = config('auth.providers.users.model', User::class);
         return $this->belongsTo($model, 'deleted_by');
     }
 }
