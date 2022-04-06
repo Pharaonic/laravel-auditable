@@ -43,9 +43,6 @@ class AuditsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Publishes
-        $this->publishes([
-            __DIR__ . '/config.php' => config_path('Pharaonic/auditable.php'),
-        ], ['pharaonic', 'laravel-auditable']);
+        // 
     }
 }
